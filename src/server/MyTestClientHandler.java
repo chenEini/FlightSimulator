@@ -29,7 +29,6 @@ public class MyTestClientHandler implements ClientHandler {
 	}
 
 	// private methods
-
 	private void readInputsAndSend(BufferedReader in, PrintWriter out, String exitStr) {
 		try {
 			String line;

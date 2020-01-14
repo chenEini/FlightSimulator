@@ -15,7 +15,7 @@ public class Run {
 		MySerialServer server = new MySerialServer(Integer.parseInt(args[0]), handler);
 
 		server.start();
-		Thread.sleep(60*1000);
+		Thread.sleep(60 * 1000);
 		server.stop();
 	}
 }

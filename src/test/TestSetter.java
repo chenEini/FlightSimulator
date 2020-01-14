@@ -10,8 +10,7 @@ public class TestSetter {
 	static MySerialServer s;
 
 	public static void runServer(int port) {
-		// put the code here that runs your server
-
+		// run the server
 		BestFirstSearch<String> bfs = new BestFirstSearch<String>();
 		SearcherSolver<String> solver = new SearcherSolver<String>(bfs);
 
@@ -20,8 +19,7 @@ public class TestSetter {
 	}
 
 	public static void stopServer() {
-		// put the code here that stops your server
-
+		// stop the server
 		s.stop();
 	}
 }

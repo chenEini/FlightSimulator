@@ -34,7 +34,6 @@ public class MySerialServer implements Server {
 	}
 
 	// private methods
-
 	private void runServer() throws Exception {
 		ServerSocket server = new ServerSocket(port);
 		server.setSoTimeout(1000);

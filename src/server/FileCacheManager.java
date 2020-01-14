@@ -34,5 +34,4 @@ public class FileCacheManager implements CacheManager<String, String>, Serializa
 	public void saveSolution(String problem, String solution) {
 		cache.put(problem, solution);
 	}
-
 }

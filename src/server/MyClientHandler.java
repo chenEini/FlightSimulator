@@ -29,7 +29,6 @@ public class MyClientHandler implements ClientHandler {
 	}
 
 	// private methods
-
 	private void readInputsAndSend(BufferedReader in, PrintWriter out, String finishMatrixStr) {
 		try {
 			String line;

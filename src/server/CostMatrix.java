@@ -93,7 +93,6 @@ public class CostMatrix implements Searchable<String> {
 	}
 
 	public String getReadablePath(List<State<String>> path) {
-
 		String readablePath = "";
 
 		for (int i = 0; i < path.size() - 1; i++) {

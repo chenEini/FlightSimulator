@@ -2,7 +2,6 @@ package test;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
-
 import server.CostMatrix;
 import server.State;
 import server.BestFirstSearch;
@@ -10,7 +9,7 @@ import server.BestFirstSearch;
 public class TestCostMatrix {
 
 	public static void run() {
-		
+
 		State<String> a = new State<String>("A", null, 15);
 		State<String> b = new State<String>("B", null, 10);
 		State<String> c = new State<String>("A", null, 12133);
