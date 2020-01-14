@@ -11,6 +11,9 @@ public class Calculator {
 		Stack<String> stack = new Stack<String>();
 		Stack<Expression> stackExp = new Stack<Expression>();
 
+		if (expression.startsWith("-"))
+			expression = "0" + expression;
+
 		String[] split = expression.split("(?<=[-+*/()])|(?=[-+*/()])");
 
 		for (String s : split) {
