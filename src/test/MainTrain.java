@@ -27,6 +27,11 @@ public class MainTrain {
 			TestServer.runClient(port);
 			System.out.println("test client 5");
 			TestServer.runClient(port);
+
+			// test interpreter
+			System.out.println("test interpreter");
+			TestInterpreter.run();
+
 		} finally {
 			TestSetter.stopServer();
 		}
