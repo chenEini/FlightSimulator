@@ -38,7 +38,7 @@ public class Parser {
 
 	public void parse(String[] line) {
 
-		List<String> lineList = Arrays.asList(line);
+		List<String> lineList = new ArrayList<>(Arrays.asList(line));
 		ListIterator<String> it = lineList.listIterator();
 		String str = "";
 
@@ -51,6 +51,7 @@ public class Parser {
 					commandMap.get("bind").doCommand(Arrays.asList(lineList.get(it.nextIndex() + 1)));
 					lineList.remove(it.nextIndex()); // remove the word "bind" from the line
 				}
+				
 				it.remove();
 				commandMap.get(str).doCommand(lineList);
 			}
