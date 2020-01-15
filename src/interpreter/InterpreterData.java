@@ -7,7 +7,7 @@ public class InterpreterData {
 	private HashMap<String, Double> symbolTable;
 	private HashMap<String, String> bindTable;
 
-	private InterpreterData() {
+	public InterpreterData() {
 		symbolTable = new HashMap<String, Double>();
 		bindTable = new HashMap<String, String>();
 	}
