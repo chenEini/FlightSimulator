@@ -2,6 +2,8 @@ package test;
 
 import java.util.Random;
 
+import expression.Calculator;
+
 public class MainTrain {
 
 	public static void main(String[] args) {
@@ -13,23 +15,28 @@ public class MainTrain {
 
 		try {
 			// test cost matrix problem
-			System.out.println("test cost matrix");
+			System.out.println("test cost matrix :  ");
 			TestCostMatrix.run();
 
 			// test client-server communication
-			System.out.println("test client 1");
+			System.out.println("test client 1 : ");
 			TestServer.runClient(port);
-			System.out.println("test client 2");
+			System.out.println("test client 2 : ");
 			TestServer.runClient(port);
-			System.out.println("test client 3");
+			System.out.println("test client 3 : ");
 			TestServer.runClient(port);
-			System.out.println("test client 4");
+			System.out.println("test client 4 : ");
 			TestServer.runClient(port);
-			System.out.println("test client 5");
+			System.out.println("test client 5 : ");
 			TestServer.runClient(port);
 
+			// test expression calculator
+			System.out.println("test expression calculator : ");
+			double num = Calculator.calc("3 * 5 - (8+2)");
+			System.out.println("result from expression calculator is = " + num);
+
 			// test interpreter
-			System.out.println("test interpreter");
+			System.out.println("test interpreter : ");
 			TestInterpreter.run();
 
 		} finally {
