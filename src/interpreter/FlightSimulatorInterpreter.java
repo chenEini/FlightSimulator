@@ -6,7 +6,7 @@ public class FlightSimulatorInterpreter {
 	private Parser parser;
 	private int returnValue;
 	private static InterpreterData data = new InterpreterData();
-	
+
 	public FlightSimulatorInterpreter(Lexer lexer, Parser parser) {
 		super();
 		this.lexer = lexer;
@@ -17,7 +17,7 @@ public class FlightSimulatorInterpreter {
 	public FlightSimulatorInterpreter() {
 		super();
 		this.lexer = new Lexer();
-		this.parser = new Parser(); 
+		this.parser = new Parser();
 		this.returnValue = 0;
 	}
 
@@ -31,10 +31,8 @@ public class FlightSimulatorInterpreter {
 		}
 		return returnValue;
 	}
-	
+
 	public static InterpreterData getData() {
 		return data;
 	}
-	
-	
 }
