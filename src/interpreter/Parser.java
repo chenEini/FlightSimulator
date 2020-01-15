@@ -1,8 +1,6 @@
 package interpreter;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import command.AssignmentCommand;
 import command.BindCommand;
@@ -41,17 +39,21 @@ public class Parser {
 	public void parse(String[] line) {
 
 		List<String> lineList = Arrays.asList(line);
+		ListIterator<String> it = lineList.listIterator();
+		String str = "";
 
-		for (int i = 0; i < lineList.size(); i++) {
-			String key = lineList.get(i);
+		while (it.hasNext()) {
+			
+			str = it.next();
 
-			if (commandMap.containsKey(key)) {
-				if (key == "=" && i < lineList.size() - 1 && lineList.get(i + 1) == "bind") {
-					commandMap.get(lineList.get(i + 1)).doCommand(Arrays.asList(lineList.get(i + 2)));
-					lineList.remove(i + 1);
+			if (commandMap.containsKey(str)) {			
+				if (str == "=" && it.hasNext() && lineList.get(it.nextIndex()) == "bind") {
+					commandMap.get("bind").doCommand(Arrays.asList(lineList.get(it.nextIndex() + 1)));
+					lineList.remove(it.nextIndex()); //remove the word "bind" from the line
 				}
-				lineList.remove(i);
-				commandMap.get(key).doCommand(lineList);
+				it.remove();
+				commandMap.get(str).doCommand(lineList);
+				
 			} else {
 				// change variable to value
 				// if null do nothing
