@@ -1,9 +1,13 @@
 package test;
 
+import interpreter.FlightSimulatorInterpreter;
+
 public class MyInterpreter {
 
 	public static int interpret(String[] lines) {
-		// call your interpreter here
-		return 0;
+
+		FlightSimulatorInterpreter interpreter = new FlightSimulatorInterpreter();
+
+		return interpreter.interpret(lines);
 	}
 }

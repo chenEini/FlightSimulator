@@ -27,5 +27,4 @@ public class InterpreterData {
 	public String getBind(String sym) {
 		return bindTable.get(sym); // return null is symbol not exist
 	}
-
 }
