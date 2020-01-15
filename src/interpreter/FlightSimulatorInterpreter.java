@@ -33,4 +33,10 @@ public class FlightSimulatorInterpreter {
 		}
 		return returnValue;
 	}
+	
+	public InterpreterData getData() {
+		return data;
+	}
+	
+	
 }
