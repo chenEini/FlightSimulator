@@ -2,6 +2,7 @@ package interpreter;
 
 import java.util.HashMap;
 
+import command.ConnectCommand;
 import server.FlightSimulatorClientHandler;
 
 public class InterpreterData {
@@ -36,7 +37,7 @@ public class InterpreterData {
 
 	public void setValue(String sym, Double val) {
 		if (bindTable.containsKey(sym)) {
-			// send command to client handler : "set" + bindTable.get(sym) + val
+			ConnectCommand.simulatorSetCommand("set " + bindTable.get(sym) + " " + val);
 		} else if (symbolTable.containsKey(sym)) {
 			symbolTable.put(sym, val);
 		}
