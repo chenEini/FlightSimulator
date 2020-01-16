@@ -42,7 +42,5 @@ public class MainTrain {
 		} finally {
 			TestSetter.stopServer();
 		}
-
-		System.out.println("done");
 	}
 }
