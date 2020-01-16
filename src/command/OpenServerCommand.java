@@ -1,18 +1,14 @@
 package command;
 
+import java.util.List;
+
 import server.ClientHandler;
 import server.FlightSimulatorClientHandler;
 import server.MySerialServer;
-import java.util.List;
 
 public class OpenServerCommand implements Command {
 
 	static MySerialServer server;
-
-	public static void closeServer() {
-		if (server != null)
-			server.stop();
-	}
 
 	@Override
 	public void doCommand(List<String> str) {
@@ -24,5 +20,10 @@ public class OpenServerCommand implements Command {
 
 		server = new MySerialServer(port, handler);
 		server.start();
+	}
+
+	public static void closeServer() {
+		if (server != null)
+			server.stop();
 	}
 }
