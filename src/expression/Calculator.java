@@ -1,9 +1,10 @@
 package expression;
 
-import interpreter.FlightSimulatorInterpreter;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
+
+import interpreter.FlightSimulatorInterpreter;
 
 public class Calculator {
 
