@@ -2,6 +2,8 @@ package interpreter;
 
 import java.util.HashMap;
 
+import server.FlightSimulatorClientHandler;
+
 public class InterpreterData {
 
 	private HashMap<String, Double> symbolTable;
@@ -42,7 +44,7 @@ public class InterpreterData {
 
 	public Double getValue(String sym) {
 		if (bindTable.containsKey(sym)) {
-			// get value from client handler where key is : bindTable.get(sym)
+			return FlightSimulatorClientHandler.getUpdatedVal(bindTable.get(sym));
 		} else if (symbolTable.containsKey(sym)) {
 			return symbolTable.get(sym);
 		}
