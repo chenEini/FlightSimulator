@@ -47,13 +47,17 @@ public class Parser {
 			str = it.next();
 
 			if (commandMap.containsKey(str)) {
-				if (str == "=" && it.hasNext() && lineList.get(it.nextIndex()) == "bind") {
-					commandMap.get("bind").doCommand(Arrays.asList(lineList.get(it.nextIndex() + 1)));
-					lineList.remove(it.nextIndex()); // remove the word "bind" from the line
+				if (str.equals("=") && it.hasNext() && lineList.get(it.nextIndex()).equals("bind")) {
+
+					it.remove(); // remove the symbol "=" from the line only
+					it.next(); // get the symbol "bind"
+					it.remove(); // remove the symbol "bind"
+
+					commandMap.get("bind").doCommand(lineList);
+				} else {
+					it.remove();
+					commandMap.get(str).doCommand(lineList);
 				}
-				
-				it.remove();
-				commandMap.get(str).doCommand(lineList);
 			}
 		}
 	}
