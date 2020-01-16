@@ -32,7 +32,7 @@ public class WhileCommand implements Command {
 	}
 
 	private boolean checkCondition() {
-		String[] split = condition.split(" ");
+		String[] split = condition.split("(\\+|-|\\*|\\/|=|>|<|>=|<=|==|&|\\||%|!|\\^|\\(|\\))");
 		Double p1 = Calculator.calc(split[0]);
 		Double p2 = Calculator.calc(split[2]);
 		boolean condVal;
