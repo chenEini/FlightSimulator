@@ -14,6 +14,7 @@ import command.WhileCommand;
 
 public class Parser {
 
+	private static boolean whileMode = false;
 	private static Parser parserInstance = null;
 	private static HashMap<String, Command> commandMap = new HashMap<String, Command>();
 
@@ -41,20 +42,32 @@ public class Parser {
 		List<String> lineList = new ArrayList<>(Arrays.asList(line));
 		ListIterator<String> it = lineList.listIterator();
 		String str = "";
+		WhileCommand command = new WhileCommand();
 
 		while (it.hasNext()) {
 
 			str = it.next();
 
 			if (commandMap.containsKey(str)) {
-				if (str.equals("=") && it.hasNext() && lineList.get(it.nextIndex()).equals("bind")) {
+				if (whileMode) {
+					it.remove();
+					command.addCommand(commandMap.get(str));
+					command.addParams(lineList);
+				} 
+				else if (str.equals("=") && it.hasNext() && lineList.get(it.nextIndex()).equals("bind")) {
 
-					it.remove(); // remove the symbol "=" from the line only
+					it.remove(); // remove the symbol "="
 					it.next(); // get the symbol "bind"
 					it.remove(); // remove the symbol "bind"
 
 					commandMap.get("bind").doCommand(lineList);
-				} else {
+				} 
+				else if (str.equals("while")) {
+					it.remove(); // remove the symbol "while"
+					whileMode = true;
+					command.setCondition(it.next());
+				} 
+				else {
 					it.remove();
 					commandMap.get(str).doCommand(lineList);
 				}
