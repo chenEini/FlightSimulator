@@ -1,5 +1,6 @@
 package expression;
 
+import interpreter.FlightSimulatorInterpreter;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -21,7 +22,7 @@ public class Calculator {
 				queue.add(s);
 			}
 			if (isVariable(s)) {
-				queue.add(getVariable(s));
+				queue.add(getValue(s));
 			} else {
 				switch (s) {
 				case "/":
@@ -84,13 +85,11 @@ public class Calculator {
 		}
 	}
 
-	private static boolean isVariable(String val) {
-		// TODO
-		return false;
+	private static boolean isVariable(String var) {
+		return FlightSimulatorInterpreter.getData().exists(var);
 	}
 
-	private static String getVariable(String val) {
-		// TODO
-		return "1";
+	private static String getValue(String var) {
+		return FlightSimulatorInterpreter.getData().getValue(var).toString();
 	}
 }

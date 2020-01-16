@@ -27,4 +27,25 @@ public class InterpreterData {
 	public String getBind(String sym) {
 		return bindTable.get(sym); // return null is symbol not exist
 	}
+
+	public boolean exists(String sym) {
+		return (symbolTable.containsKey(sym) || bindTable.containsKey(sym));
+	}
+
+	public void setValue(String sym, Double val) {
+		if (bindTable.containsKey(sym)) {
+			// send command to client handler : "set" + bindTable.get(sym) + val
+		} else if (symbolTable.containsKey(sym)) {
+			symbolTable.put(sym, val);
+		}
+	}
+
+	public Double getValue(String sym) {
+		if (bindTable.containsKey(sym)) {
+			// get value from client handler where key is : bindTable.get(sym)
+		} else if (symbolTable.containsKey(sym)) {
+			return symbolTable.get(sym);
+		}
+		return null;
+	}
 }

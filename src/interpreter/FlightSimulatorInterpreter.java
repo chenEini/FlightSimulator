@@ -4,24 +4,16 @@ public class FlightSimulatorInterpreter {
 
 	private Lexer lexer;
 	private Parser parser;
-	private int returnValue;
+	private static int returnValue = 0;
 	private static InterpreterData data = new InterpreterData();
-	
-	public FlightSimulatorInterpreter(Lexer lexer, Parser parser) {
-		super();
-		this.lexer = lexer;
-		this.parser = parser;
-		this.returnValue = 0;
-	}
 
 	public FlightSimulatorInterpreter() {
 		super();
-		this.lexer = new Lexer();
-		this.parser = new Parser(); 
-		this.returnValue = 0;
+		this.lexer = Lexer.getInstance();
+		this.parser = Parser.getInstance();
 	}
 
-	public void setReturnValue(int val) {
+	public static void setReturnValue(int val) {
 		returnValue = val;
 	}
 
@@ -31,10 +23,8 @@ public class FlightSimulatorInterpreter {
 		}
 		return returnValue;
 	}
-	
+
 	public static InterpreterData getData() {
 		return data;
 	}
-	
-	
 }

@@ -38,25 +38,22 @@ public class Parser {
 
 	public void parse(String[] line) {
 
-		List<String> lineList = Arrays.asList(line);
+		List<String> lineList = new ArrayList<>(Arrays.asList(line));
 		ListIterator<String> it = lineList.listIterator();
 		String str = "";
 
 		while (it.hasNext()) {
-			
+
 			str = it.next();
 
-			if (commandMap.containsKey(str)) {			
+			if (commandMap.containsKey(str)) {
 				if (str == "=" && it.hasNext() && lineList.get(it.nextIndex()) == "bind") {
 					commandMap.get("bind").doCommand(Arrays.asList(lineList.get(it.nextIndex() + 1)));
-					lineList.remove(it.nextIndex()); //remove the word "bind" from the line
+					lineList.remove(it.nextIndex()); // remove the word "bind" from the line
 				}
+				
 				it.remove();
 				commandMap.get(str).doCommand(lineList);
-				
-			} else {
-				// change variable to value
-				// if null do nothing
 			}
 		}
 	}
