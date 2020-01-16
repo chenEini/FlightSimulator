@@ -1,8 +1,8 @@
 package command;
 
-import interpreter.FlightSimulatorInterpreter;
 import java.util.List;
 
+import interpreter.FlightSimulatorInterpreter;
 import expression.Calculator;
 
 public class AssignmentCommand implements Command {
