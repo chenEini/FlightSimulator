@@ -2,9 +2,9 @@ package server;
 
 public class State<T> implements Comparable<State<T>> {
 
-	T state;
-	State<T> cameFrom;
-	double cost;
+	private T state;
+	private State<T> cameFrom;
+	private double cost;
 
 	public State(T state) {
 		this.state = state;

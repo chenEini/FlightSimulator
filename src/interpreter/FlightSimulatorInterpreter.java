@@ -8,7 +8,6 @@ public class FlightSimulatorInterpreter {
 	private static InterpreterData data = new InterpreterData();
 
 	public FlightSimulatorInterpreter() {
-		super();
 		this.lexer = Lexer.getInstance();
 		this.parser = Parser.getInstance();
 	}

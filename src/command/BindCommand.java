@@ -1,7 +1,6 @@
 package command;
 
 import java.util.List;
-
 import interpreter.FlightSimulatorInterpreter;
 
 public class BindCommand implements Command {

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyClientHandler implements ClientHandler {
+	
 	private SearcherSolver<String> solver;
 
 	public MyClientHandler(SearcherSolver<String> solver) {

@@ -1,18 +1,16 @@
 package command;
 
 import java.util.List;
-
 import server.ClientHandler;
-import server.FlightSimulatorClientHandler;
 import server.MySerialServer;
+import server.FlightSimulatorClientHandler;
 
 public class OpenServerCommand implements Command {
-
-	static MySerialServer server;
+	
+	private static MySerialServer server;
 
 	@Override
 	public void doCommand(List<String> str) {
-
 		int port = Integer.parseInt(str.get(0));
 		int frequency = Integer.parseInt(str.get(1));
 

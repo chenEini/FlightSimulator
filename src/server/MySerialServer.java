@@ -4,9 +4,10 @@ import java.io.*;
 import java.net.*;
 
 public class MySerialServer implements Server {
+	
 	private int port;
-	private ClientHandler handler;
 	private volatile boolean stop;
+	private ClientHandler handler;
 
 	public MySerialServer(int port, ClientHandler handler) {
 		this.port = port;

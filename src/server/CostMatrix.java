@@ -55,8 +55,8 @@ public class CostMatrix implements Searchable<String> {
 
 		List<State<String>> successorsList = new ArrayList<State<String>>();
 
-		int stateRow = Integer.parseInt(s.state.split(",")[0]);
-		int stateCol = Integer.parseInt(s.state.split(",")[1]);
+		int stateRow = Integer.parseInt(s.getState().split(",")[0]);
+		int stateCol = Integer.parseInt(s.getState().split(",")[1]);
 		double stateCost = s.getCost();
 
 		String position;
@@ -100,11 +100,11 @@ public class CostMatrix implements Searchable<String> {
 			State<String> currentState = path.get(i);
 			State<String> nextState = path.get(i + 1);
 
-			int currentStateRow = Integer.parseInt(currentState.state.split(",")[0]);
-			int currentStateCol = Integer.parseInt(currentState.state.split(",")[1]);
+			int currentStateRow = Integer.parseInt(currentState.getState().split(",")[0]);
+			int currentStateCol = Integer.parseInt(currentState.getState().split(",")[1]);
 
-			int nextStateRow = Integer.parseInt(nextState.state.split(",")[0]);
-			int nextStateCol = Integer.parseInt(nextState.state.split(",")[1]);
+			int nextStateRow = Integer.parseInt(nextState.getState().split(",")[0]);
+			int nextStateCol = Integer.parseInt(nextState.getState().split(",")[1]);
 
 			if (currentStateRow == nextStateRow + 1 && currentStateCol == nextStateCol) {
 				readablePath += "Up,";

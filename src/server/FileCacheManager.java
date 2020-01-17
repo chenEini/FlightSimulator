@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 
 public class FileCacheManager implements CacheManager<String, String>, Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, String> cache;
 

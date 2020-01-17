@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.UnknownHostException;
 
 public class MyTestClientHandler implements ClientHandler {
+
 	private Solver<String, String> solver;
 	private CacheManager<String, String> cache;
 

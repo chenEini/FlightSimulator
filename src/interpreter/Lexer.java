@@ -14,11 +14,10 @@ public class Lexer {
 	}
 
 	public String[] lexer(String line) {
-
-		String[] tokens = line.split("(?<=([={}])|(bind))|(?=([={}]))");
-		StringBuilder builder = new StringBuilder();
 		Scanner sc;
 		String str1, str2;
+		StringBuilder builder = new StringBuilder();
+		String[] tokens = line.split("(?<=([={}])|(bind))|(?=([={}]))");
 
 		for (String token : tokens) {
 			sc = new Scanner(token);

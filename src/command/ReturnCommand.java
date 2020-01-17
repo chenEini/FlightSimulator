@@ -1,22 +1,14 @@
 package command;
 
 import java.util.List;
-
-import interpreter.FlightSimulatorInterpreter;
-
 import expression.Calculator;
+import interpreter.FlightSimulatorInterpreter;
 
 public class ReturnCommand implements Command {
 
 	@Override
 	public void doCommand(List<String> str) {
-		StringBuilder expression = new StringBuilder();
-
-		for (String s : str) {
-			expression.append(s);
-		}
-
-		int result = (int) Calculator.calc(expression.toString());
+		int result = (int) Calculator.calc(str.get(0));
 		FlightSimulatorInterpreter.setReturnValue(result);
 	}
 }

@@ -1,7 +1,6 @@
 package interpreter;
 
 import java.util.*;
-
 import command.AssignmentCommand;
 import command.BindCommand;
 import command.Command;
@@ -14,9 +13,11 @@ import command.WhileCommand;
 
 public class Parser {
 
-	private static boolean whileMode = false;
 	private static Parser parserInstance = null;
 	private static HashMap<String, Command> commandMap = new HashMap<String, Command>();
+
+	private static boolean whileMode = false;
+	private WhileCommand command = new WhileCommand();
 
 	public static Parser getInstance() {
 		if (parserInstance == null) {
@@ -38,30 +39,28 @@ public class Parser {
 	}
 
 	public void parse(String[] line) {
-
-		List<String> lineList = new ArrayList<>(Arrays.asList(line));
-		ListIterator<String> it = lineList.listIterator();
 		String str = "";
-		WhileCommand command = new WhileCommand();
+		List<String> lineList = new ArrayList<>(Arrays.asList(line));
+
+		ListIterator<String> it = lineList.listIterator();
 
 		while (it.hasNext()) {
 
 			str = it.next();
 
 			if (commandMap.containsKey(str)) {
+
 				if (whileMode) {
 					it.remove();
 					command.addCommand(commandMap.get(str));
 					command.addParams(lineList);
-				} 
+				}
 				else if (str.equals("=") && it.hasNext() && lineList.get(it.nextIndex()).equals("bind")) {
-
 					it.remove(); // remove the symbol "="
 					it.next(); // get the symbol "bind"
 					it.remove(); // remove the symbol "bind"
-
 					commandMap.get("bind").doCommand(lineList);
-				} 
+				}
 				else if (str.equals("while")) {
 					it.remove(); // remove the symbol "while"
 					whileMode = true;
@@ -71,6 +70,10 @@ public class Parser {
 					it.remove();
 					commandMap.get(str).doCommand(lineList);
 				}
+			} 
+			else if (str.equals("}")) {
+				whileMode = false;
+				command.doCommand(null);
 			}
 		}
 	}

@@ -22,9 +22,10 @@ public class Calculator {
 			if (isDouble(s)) {
 				queue.add(s);
 			}
-			if (isVariable(s)) {
+			else if (isVariable(s)) {
 				queue.add(getValue(s));
-			} else {
+			} 
+			else {
 				switch (s) {
 				case "/":
 				case "*":
@@ -54,7 +55,8 @@ public class Calculator {
 		for (String str : queue) {
 			if (isDouble(str)) {
 				stackExp.push(new Number(Double.parseDouble(str)));
-			} else {
+			}
+			else {
 				Expression right = stackExp.pop();
 				Expression left = stackExp.pop();
 
