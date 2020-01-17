@@ -2,7 +2,6 @@ package command;
 
 import java.util.List;
 import java.net.Socket;
-import java.io.IOException;
 import java.io.PrintWriter;
 
 public class ConnectCommand implements Command {
@@ -13,7 +12,7 @@ public class ConnectCommand implements Command {
 	@Override
 	public void doCommand(List<String> str) {
 		try {
-			Thread.sleep(15000); // waiting for the server to be ready, just for testing
+			Thread.sleep(1350); // waiting for the server to be ready, just for testing
 
 			simulator = new Socket(str.get(0), Integer.parseInt(str.get(1)));
 			out = new PrintWriter(simulator.getOutputStream());
@@ -27,12 +26,14 @@ public class ConnectCommand implements Command {
 	}
 
 	public static void disconnect() {
-		out.println("bye");
-
 		try {
+			Thread.sleep(1000); // waiting for the server to be ready, just for testing
+		
+			out.println("bye");
+
 			out.close();
 			simulator.close();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
