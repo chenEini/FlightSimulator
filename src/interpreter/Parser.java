@@ -19,6 +19,9 @@ public class Parser {
 	private static boolean whileMode = false;
 	private WhileCommand command = new WhileCommand();
 
+	private Parser() {
+	}
+
 	public static Parser getInstance() {
 		if (parserInstance == null) {
 			parserInstance = new Parser();
