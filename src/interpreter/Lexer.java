@@ -7,6 +7,9 @@ public class Lexer {
 
 	private static Lexer lexerInstance = null;
 
+	private Lexer() {
+	}
+	
 	public static Lexer getInstance() {
 		if (lexerInstance == null)
 			lexerInstance = new Lexer();
