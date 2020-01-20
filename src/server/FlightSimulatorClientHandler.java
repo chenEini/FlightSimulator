@@ -53,9 +53,34 @@ public class FlightSimulatorClientHandler implements ClientHandler {
 		this.frequency = frequency;
 
 		// for test only
-		FlightSimulatorInterpreter.getData().addSimulatorBindVal("simX", 0.0);
-		FlightSimulatorInterpreter.getData().addSimulatorBindVal("simY", 0.0);
-		FlightSimulatorInterpreter.getData().addSimulatorBindVal("simZ", 0.0);
+//		FlightSimulatorInterpreter.getData().addSimulatorBindVal("simX", 0.0);
+//		FlightSimulatorInterpreter.getData().addSimulatorBindVal("simY", 0.0);
+//		FlightSimulatorInterpreter.getData().addSimulatorBindVal("simZ", 0.0);
+		
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/airspeed-indicator/indicated-speed-kt",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/altimeter/indicated-altitude-ft",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/altimeter/pressure-alt-ft",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/attitude-indicator/indicated-pitch-deg",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/attitude-indicator/indicated-roll-deg",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/attitude-indicator/internal-pitch-deg",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/attitude-indicator/internal-roll-deg",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/encoder/indicated-altitude-ft",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/encoder/pressure-alt-ft",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/gps/indicated-altitude-ft",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/gps/indicated-ground-speed-kt",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/gps/indicated-vertical-speed",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/heading-indicator/indicated-heading-deg",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/magnetic-compass/indicated-heading-deg",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/slip-skid-ball/indicated-slip-skid",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/turn-indicator/indicated-turn-rate",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/vertical-speed-indicator/indicated-speed-fpm",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/flight/aileron", 0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/flight/elevator", 0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/flight/rudder",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/flight/flaps",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/engines/current-engine/throttle",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/engines/engine/rpm", 0.0);
+		
 	}
 
 	@Override
