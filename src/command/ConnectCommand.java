@@ -15,7 +15,7 @@ public class ConnectCommand implements Command {
 			Thread.sleep(1350); // waiting for the server to be ready, just for testing
 
 			simulator = new Socket(str.get(0), Integer.parseInt(str.get(1)));
-			out = new PrintWriter(simulator.getOutputStream());
+			out = new PrintWriter(simulator.getOutputStream(), true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -28,7 +28,7 @@ public class ConnectCommand implements Command {
 	public static void disconnect() {
 		try {
 			Thread.sleep(1000); // waiting for the server to be ready, just for testing
-		
+
 			out.println("bye");
 
 			out.close();
