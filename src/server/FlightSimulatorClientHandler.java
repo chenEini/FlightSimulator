@@ -43,8 +43,11 @@ public class FlightSimulatorClientHandler implements ClientHandler {
 				FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/flight/elevator", Double.parseDouble(values[18]));
 				FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/flight/rudder", Double.parseDouble(values[19]));
 				FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/flight/flaps", Double.parseDouble(values[20]));
-				FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/engines/current-engine/throttle",Double.parseDouble(values[21]));
-				FlightSimulatorInterpreter.getData().addSimulatorBindVal("/engines/engine/rpm", Double.parseDouble(values[22]));
+				FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/flight/speedbrake",Double.parseDouble(values[21]));
+				FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/engines/current-engine/throttle", Double.parseDouble(values[22]));
+				FlightSimulatorInterpreter.getData().addSimulatorBindVal("/engines/engine/rpm", Double.parseDouble(values[23]));
+				FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/heading-indicator/offset-deg", Double.parseDouble(values[24]));
+				
 			}
 		}
 	}
@@ -78,9 +81,10 @@ public class FlightSimulatorClientHandler implements ClientHandler {
 		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/flight/elevator", 0.0);
 		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/flight/rudder",0.0);
 		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/flight/flaps",0.0);
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/flight/speedbrake",0.0);
 		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/controls/engines/current-engine/throttle",0.0);
 		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/engines/engine/rpm", 0.0);
-		
+		FlightSimulatorInterpreter.getData().addSimulatorBindVal("/instrumentation/heading-indicator/offset-deg",0.0);
 	}
 
 	@Override
