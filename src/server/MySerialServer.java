@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.*;
 
 public class MySerialServer implements Server {
-	
+
 	private int port;
 	private volatile boolean stop;
 	private ClientHandler handler;
@@ -37,20 +37,21 @@ public class MySerialServer implements Server {
 	// private methods
 	private void runServer() throws Exception {
 		ServerSocket server = new ServerSocket(port);
-		server.setSoTimeout(1000);
+		server.setSoTimeout(3000);
+		Socket client = null;
 		while (!stop) {
 			try {
-				Socket client = server.accept();
+				client = server.accept();
 				try {
 					handler.handleClient(client.getInputStream(), client.getOutputStream());
-					client.getInputStream().close();
-					client.getOutputStream().close();
-					client.close();
 				} catch (IOException e) {
+					System.out.println("Error: " + e.getMessage());
 				}
 			} catch (SocketTimeoutException e) {
+				System.out.println("Error: " + e.getMessage());
 			}
 		}
+		client.close();
 		server.close();
 	}
 }

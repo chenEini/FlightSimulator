@@ -35,7 +35,7 @@ public class MainTrain {
 			double num = Calculator.calc("3 * 5 - (8+2)");
 			System.out.println("result from expression calculator is = " + num);
 
-			// test interpreter
+			// test interpreter with simulator demo
 			System.out.println("test interpreter : ");
 			TestInterpreter.run();
 
